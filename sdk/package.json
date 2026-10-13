@@ -1,0 +1,41 @@
+{
+  "name": "@voltr/vault-sdk",
+  "version": "1.0.17",
+  "description": "SDK for interacting with Voltr Protocol",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist docs docs-md",
+    "build": "npm run clean && tsc",
+    "prepare": "npm run build",
+    "docs": "typedoc --out docs src/index.ts",
+    "docs:watch": "typedoc --out docs src/index.ts --watch",
+    "docs:markdown": "typedoc --out docs-md src/index.ts --plugin typedoc-plugin-markdown",
+    "docs:deploy": "npm run docs && gh-pages -d docs",
+    "prepublishOnly": "npm run build && npm run docs"
+  },
+  "keywords": [
+    "solana",
+    "voltr",
+    "vault",
+    "sdk"
+  ],
+  "author": "voltr",
+  "license": "MIT",
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.31.1",
+    "@solana/spl-token": "^0.4.9",
+    "@solana/web3.js": "^1.98.0",
+    "bn.js": "^5.2.1",
+    "decimal.js": "^10.5.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0",
+    "typedoc": "^0.28.0",
+    "typedoc-plugin-markdown": "^4.3.3",
+    "typescript": "^5.7.2"
+  }
+}
